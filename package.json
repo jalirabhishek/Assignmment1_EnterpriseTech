@@ -1,0 +1,14 @@
+{
+  "name": "product-server",
+  "version": "1.0.0",
+  "description": "Node js server program for POST, GET, UPDATE and DELETE data",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Abhishek Rijal",
+  "license": "ISC",
+  "dependencies": {
+    "node": "^20.7.0"
+  }
+}
