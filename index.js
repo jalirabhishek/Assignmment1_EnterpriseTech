@@ -30,7 +30,7 @@ server.get("/products", function (req, res, next) {
   console.log("********************");
   console.log("products GET: received request");
   console.log("GET /products params=>" + JSON.stringify(req.params));
-  totalGetCount++;
+  totalCountForGet++;
 
   // Find each and ecery attribute within the given collection
   productsSave.find({}, function (error, products) {
@@ -51,7 +51,7 @@ server.post("/products", function (req, res, next) {
     console.log("products POST: received request");
     console.log("POST /products params=>" + JSON.stringify(req.params));
     console.log("POST / products body=>" + JSON.stringify(req.body));
-    totalPostCount++;
+    totalCountForPost++;
   
     // validation of manadatory fields
     if (req.body.name === undefined) {
@@ -68,7 +68,7 @@ server.post("/products", function (req, res, next) {
     }
   
     let newProduct = {
-      productId: req.body.productId,
+      id: req.body.id,
       name: req.body.name,
       price: req.body.price,
       quantity: req.body.quantity,
@@ -82,8 +82,8 @@ server.post("/products", function (req, res, next) {
       res.send(201, product);
       console.log(
         "Processed Request Count--> GET:",
-        totalGetCount + " , " + "POST:",
-        totalPostCount
+        totalCountForGet + " , " + "POST:",
+        totalCountForPost
       );
     });
     console.log("products POST: sending response");
@@ -105,4 +105,4 @@ server.del("/products", function (req, res, next) {
       res.send(204);
       console.log("DELETE /products: all products are deleted");
     });
-  });
+  }); 
