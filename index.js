@@ -89,3 +89,20 @@ server.post("/products", function (req, res, next) {
     console.log("products POST: sending response");
   });
   
+  // Delete all products
+server.del("/products", function (req, res, next) {
+    console.log("DELETE /products params=>" + JSON.stringify(req.params));
+  
+    // Delete all products from the persistence engine
+    productsSave.deleteMany({}, function (error) {
+      console.log(`${req.method} ${req.url}: sending response`);
+  
+      // If there are any errors, pass them to next in the correct format
+      if (error) {
+        return next(new Error(JSON.stringify(error.errors)));
+      }
+      // Send a success response indicating the number of products deleted
+      res.send(204);
+      console.log("DELETE /products: all products are deleted");
+    });
+  });
