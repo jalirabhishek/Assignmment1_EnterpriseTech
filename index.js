@@ -42,7 +42,7 @@ server.get("/products", function (req, res, next) {
       totalCountForPost
     );
   });
-  console.log("products GET: sending response");
+  console.log("Information of all available products on the server");
 });
 
 // Creating a new product
@@ -86,7 +86,7 @@ server.post("/products", function (req, res, next) {
         totalCountForPost
       );
     });
-    console.log("products POST: sending response");
+    console.log("Product added successfully along with product details");
   });
   
   // Delete all products
@@ -103,6 +103,6 @@ server.del("/products", function (req, res, next) {
       }
       // Send a success response indicating the number of products deleted
       res.send(204);
-      console.log("DELETE /products: all products are deleted");
+      console.log("All products in the server have been deleted");
     });
   }); 
