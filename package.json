@@ -9,6 +9,8 @@
   "author": "Abhishek Rijal",
   "license": "ISC",
   "dependencies": {
-    "node": "^20.7.0"
+    "node": "^20.7.0",
+    "restify": "^11.1.0",
+    "save": "^2.9.0"
   }
 }
